@@ -1,145 +1,143 @@
-# Sequencing Guide
+# 基因序指南
 
-Below are two tables to help you understand your chickens. The first is sorted
-by difficulty tier, and the second is in alphabetical order. The B/C/D/F/S/W
-columns represent each allele a chicken has. A "D" in one of those columns
-represents a dominant trait (AA or Aa), and a "r" represents a recessive one
-(aa).
+以下有兩個表格, 可以包你了解自己的雞.
+首先是按難度等級排列, 第二個按字母順序排列. B/C/D/F/S/W
+列代表雞擁有的每個等位基因. 這些序列之一中的"D"代表顯性特徵(AA或Aa), "r" 則代表隱性特徵(aa).
 
-## By Tier
+## 按等級
 
-Chicken | B | C | D | F | S | W | Tier
+雞 | B | C | D | F | S | W | 等級
 -- | -- | -- | -- | -- | -- | -- | --
-Feather | D | D | D | D | D | D | 0
-Bone | r | D | D | D | D | D | 1
-Cobblestone | D | r | D | D | D | D | 1
-Dirt | D | D | r | D | D | D | 1
-Flint | D | D | D | r | D | D | 1
-Sand | D | D | D | D | r | D | 1
-Water | D | D | D | D | D | r | 1
-Coal | r | r | D | D | D | D | 2
-String | r | D | r | D | D | D | 2
-Leather | r | D | D | r | D | D | 2
-Sugar | r | D | D | D | r | D | 2
-Sponge | r | D | D | D | D | r | 2
-Diorite | D | r | r | D | D | D | 2
-Andesite | D | r | D | r | D | D | 2
-Gravel | D | r | D | D | r | D | 2
-Ice | D | r | D | D | D | r | 2
-Granite | D | D | r | r | D | D | 2
-Clay | D | D | r | D | r | D | 2
-Oak Log | D | D | r | D | D | r | 2
-Gunpowder | D | D | D | r | r | D | 2
-Kelp | D | D | D | r | D | r | 2
-Slime | D | D | D | D | r | r | 2
-Gold | r | r | r | D | D | D | 3
-Netherrack | r | r | D | r | D | D | 3
-Glass | r | r | D | D | r | D | 3
-Lapis | r | r | D | D | D | r | 3
-Iron | r | D | r | r | D | D | 3
-Iron Dust | r | D | r | D | r | D | 3
-Gold Dust | r | D | r | D | D | r | 3
-Silver Dust | r | D | D | r | r | D | 3
-Zinc Dust | r | D | D | r | D | r | 3
-Cake | r | D | D | D | r | r | 3
-Obsidian | D | r | r | r | D | D | 3
-Copper Dust | D | r | r | D | r | D | 3
-Magnesium Dust | D | r | r | D | D | r | 3
-Lava | D | r | D | r | r | D | 3
-Tin Dust | D | r | D | r | D | r | 3
-Snowball | D | r | D | D | r | r | 3
-Redstone | D | D | r | r | r | D | 3
-Cactus | D | D | r | r | D | r | 3
-Aluminum Dust | D | D | r | D | r | r | 3
-Lead Dust | D | D | D | r | r | r | 3
-Blackstone | r | r | r | r | D | D | 4
-Soul Soil | r | r | r | D | r | D | 4
-Blaze Rod | r | r | D | r | r | D | 4
-Ghast Tear | r | D | r | r | r | D | 4
-Sulfate | D | r | r | r | r | D | 4
-Shroomlight | r | r | r | D | D | r | 4
-Nether Quartz | r | r | D | r | D | r | 4
-Basalt | r | D | r | r | D | r | 4
-Crying Obsidian | D | r | r | r | D | r | 4
-Soul Sand | r | r | D | D | r | r | 4
-Ender Pearl | r | D | r | D | r | r | 4
-Netherwart | D | r | r | D | r | r | 4
-Phantom Membrane | r | D | D | r | r | r | 4
-Magma Cream | D | r | D | r | r | r | 4
-Glowstone Dust | D | D | r | r | r | r | 4
-Diamond | r | r | r | r | r | D | 5
-End Stone | r | r | r | r | D | r | 5
-Prismarine Crystal | r | r | r | D | r | r | 5
-Prismarine Shard | r | r | D | r | r | r | 5
-XP | r | D | r | r | r | r | 5
-Emerald | D | r | r | r | r | r | 5
-Netherite | r | r | r | r | r | r | 6
+羽毛 | D | D | D | D | D | D | 0
+骨頭 | r | D | D | D | D | D | 1
+鵝卵石 | D | r | D | D | D | D | 1
+土 | D | D | r | D | D | D | 1
+燧石 | D | D | D | r | D | D | 1
+沙子 | D | D | D | D | r | D | 1
+水 | D | D | D | D | D | r | 1
+煤炭 | r | r | D | D | D | D | 2
+線 | r | D | r | D | D | D | 2
+皮革 | r | D | D | r | D | D | 2
+糖 | r | D | D | D | r | D | 2
+海綿 | r | D | D | D | D | r | 2
+閃長岩 | D | r | r | D | D | D | 2
+安山岩 | D | r | D | r | D | D | 2
+礫石 | D | r | D | D | r | D | 2
+冰 | D | r | D | D | D | r | 2
+花崗岩 | D | D | r | r | D | D | 2
+黏土 | D | D | r | D | r | D | 2
+橡木原木 | D | D | r | D | D | r | 2
+火藥 | D | D | D | r | r | D | 2
+海帶 | D | D | D | r | D | r | 2
+史萊姆 | D | D | D | D | r | r | 2
+金 | r | r | r | D | D | D | 3
+地獄石 | r | r | D | r | D | D | 3
+玻璃 | r | r | D | D | r | D | 3
+青金石 | r | r | D | D | D | r | 3
+鐵 | r | D | r | r | D | D | 3
+鐵粉 | r | D | r | D | r | D | 3
+金粉 | r | D | r | D | D | r | 3
+銀粉 | r | D | D | r | r | D | 3
+鋅粉 | r | D | D | r | D | r | 3
+蛋糕 | r | D | D | D | r | r | 3
+黑曜石 | D | r | r | r | D | D | 3
+銅粉 | D | r | r | D | r | D | 3
+鎂 | D | r | r | D | D | r | 3
+熔岩 | D | r | D | r | r | D | 3
+錫粉 | D | r | D | r | D | r | 3
+雪球 | D | r | D | D | r | r | 3
+紅石 | D | D | r | r | r | D | 3
+仙人掌 | D | D | r | r | D | r | 3
+鋁粉 | D | D | r | D | r | r | 3
+鉛粉 | D | D | D | r | r | r | 3
+黑石 | r | r | r | r | D | D | 4
+靈魂土 | r | r | r | D | r | D | 4
+烈焰桿 | r | r | D | r | r | D | 4
+幽靈之淚 | r | D | r | r | r | D | 4
+硫酸鹽 | D | r | r | r | r | D | 4
+蕈光體 | r | r | r | D | D | r | 4
+地獄石英 | r | r | D | r | D | r | 4
+玄武岩 | r | D | r | r | D | r | 4
+哭泣的黑曜石 | D | r | r | r | D | r | 4
+靈魂砂 | r | r | D | D | r | r | 4
+終界珍珠 | r | D | r | D | r | r | 4
+地獄疙瘩 | D | r | r | D | r | r | 4
+夜魅皮膜 | r | D | D | r | r | r | 4
+岩漿球 | D | r | D | r | r | r | 4
+螢石粉 | D | D | r | r | r | r | 4
+鑽石 | r | r | r | r | r | D | 5
+終界石 | r | r | r | r | D | r | 5
+海磷晶體 | r | r | r | D | r | r | 5
+海磷碎片 | r | r | D | r | r | r | 5
+經驗 | r | D | r | r | r | r | 5
+綠寶石 | D | r | r | r | r | r | 5
+獄髓錠 | r | r | r | r | r | r | 6
 
-## By Name
+## 按名稱
 
-Chicken | B | C | D | F | S | W
+雞 | B | C | D | F | S | W
 -- | -- | -- | -- | -- | -- | --
-Aluminum Dust | D | D | r | D | r | r
-Andesite | D | r | D | r | D | D
-Basalt | r | D | r | r | D | r
-Blackstone | r | r | r | r | D | D
-Blaze Rod | r | r | D | r | r | D
-Bone | r | D | D | D | D | D
-Cactus | D | D | r | r | D | r
-Cake | r | D | D | D | r | r
-Clay | D | D | r | D | r | D
-Coal | r | r | D | D | D | D
-Cobblestone | D | r | D | D | D | D
-Copper Dust | D | r | r | D | r | D
-Crying Obsidian | D | r | r | r | D | r
-Diamond | r | r | r | r | r | D
-Diorite | D | r | r | D | D | D
-Dirt | D | D | r | D | D | D
-Emerald | D | r | r | r | r | r
-End Stone | r | r | r | r | D | r
-Ender Pearl | r | D | r | D | r | r
-Feather | D | D | D | D | D | D
-Flint | D | D | D | r | D | D
-Ghast Tear | r | D | r | r | r | D
-Glass | r | r | D | D | r | D
-Glowstone Dust | D | D | r | r | r | r
-Gold | r | r | r | D | D | D
-Gold Dust | r | D | r | D | D | r
-Granite | D | D | r | r | D | D
-Gravel | D | r | D | D | r | D
-Gunpowder | D | D | D | r | r | D
-Ice | D | r | D | D | D | r
-Iron | r | D | r | r | D | D
-Iron Dust | r | D | r | D | r | D
-Kelp | D | D | D | r | D | r
-Lapis | r | r | D | D | D | r
-Lava | D | r | D | r | r | D
-Lead Dust | D | D | D | r | r | r
-Leather | r | D | D | r | D | D
-Magma Cream | D | r | D | r | r | r
-Magnesium Dust | D | r | r | D | D | r
-Nether Quartz | r | r | D | r | D | r
-Netherite | r | r | r | r | r | r
-Netherrack | r | r | D | r | D | D
-Netherwart | D | r | r | D | r | r
-Oak Log | D | D | r | D | D | r
-Obsidian | D | r | r | r | D | D
-Phantom Membrane | r | D | D | r | r | r
-Prismarine Crystal | r | r | r | D | r | r
-Prismarine Shard | r | r | D | r | r | r
-Redstone | D | D | r | r | r | D
-Sand | D | D | D | D | r | D
-Shroomlight | r | r | r | D | D | r
-Silver Dust | r | D | D | r | r | D
-Slime | D | D | D | D | r | r
-Snowball | D | r | D | D | r | r
-Soul Sand | r | r | D | D | r | r
-Soul Soil | r | r | r | D | r | D
-Sponge | r | D | D | D | D | r
-String | r | D | r | D | D | D
-Sugar | r | D | D | D | r | D
-Sulfate | D | r | r | r | r | D
-Tin Dust | D | r | D | r | D | r
-Water | D | D | D | D | D | r
-XP | r | D | r | r | r | r
-Zinc Dust | r | D | D | r | D | r
+鋁粉 | D | D | r | D | r | r
+安山岩 | D | r | D | r | D | D
+玄武岩 | r | D | r | r | D | r
+黑石 | r | r | r | r | D | D
+烈焰桿 | r | r | D | r | r | D
+骨頭 | r | D | D | D | D | D
+仙人掌 | D | D | r | r | D | r
+蛋糕 | r | D | D | D | r | r
+黏土 | D | D | r | D | r | D
+煤炭 | r | r | D | D | D | D
+鵝卵石 | D | r | D | D | D | D
+銅粉 | D | r | r | D | r | D
+哭泣的黑曜石 | D | r | r | r | D | r
+鑽石 | r | r | r | r | r | D
+閃長岩 | D | r | r | D | D | D
+土 | D | D | r | D | D | D
+綠寶石 | D | r | r | r | r | r
+終界石 | r | r | r | r | D | r
+終界珍珠 | r | D | r | D | r | r
+羽毛 | D | D | D | D | D | D
+燧石 | D | D | D | r | D | D
+幽靈之淚 | r | D | r | r | r | D
+玻璃 | r | r | D | D | r | D
+螢石粉 | D | D | r | r | r | r
+金 | r | r | r | D | D | D
+金粉 | r | D | r | D | D | r
+花崗岩 | D | D | r | r | D | D
+礫石 | D | r | D | D | r | D
+火藥 | D | D | D | r | r | D
+冰 | D | r | D | D | D | r
+鐵 | r | D | r | r | D | D
+鐵粉 | r | D | r | D | r | D
+海帶 | D | D | D | r | D | r
+青金石 | r | r | D | D | D | r
+熔岩 | D | r | D | r | r | D
+鉛粉 | D | D | D | r | r | r
+皮革 | r | D | D | r | D | D
+岩漿球 | D | r | D | r | r | r
+鎂 | D | r | r | D | D | r
+地獄石英 | r | r | D | r | D | r
+獄髓錠 | r | r | r | r | r | r
+地獄石 | r | r | D | r | D | D
+地獄疙瘩 | D | r | r | D | r | r
+橡木原木 | D | D | r | D | D | r
+黑曜石 | D | r | r | r | D | D
+夜魅皮膜 | r | D | D | r | r | r
+海磷晶體 | r | r | r | D | r | r
+海磷碎片 | r | r | D | r | r | r
+紅石 | D | D | r | r | r | D
+沙子 | D | D | D | D | r | D
+蕈光體 | r | r | r | D | D | r
+銀粉 | r | D | D | r | r | D
+史萊姆 | D | D | D | D | r | r
+雪球 | D | r | D | D | r | r
+靈魂砂 | r | r | D | D | r | r
+靈魂土 | r | r | r | D | r | D
+海綿 | r | D | D | D | D | r
+線 | r | D | r | D | D | D
+糖 | r | D | D | D | r | D
+硫酸鹽 | D | r | r | r | r | D
+錫粉 | D | r | D | r | D | r
+水 | D | D | D | D | D | r
+經驗 | r | D | r | r | r | r
+鋅粉 | r | D | D | r | D | r

@@ -2,7 +2,7 @@ package space.kiichan.geneticchickengineering;
 
 import io.github.thebusybiscuit.cscorelib2.config.Config;
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
-import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
+//import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -62,24 +62,24 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         int maxMutation = clamp(1, cfg.getInt("options.max-mutation"), 6, 2);
         boolean displayResources = cfg.getBoolean("options.display-resource-in-name");
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
+        /*if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "kii-chan-reloaded/GeneticChickengineering/master").start();
-        }
+        }*/
 
         SlimefunItemStack categoryIcon;
 
         try {
-            categoryIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&eGenetic Chickengineering", "", "&a> Click to open");
+            categoryIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程雞", "", "&a> 點擊開啟");
         } catch (Exception x) {
-            categoryIcon = new SlimefunItemStack("GCE_ICON", Material.EGG, "&eGenetic Chickengineering", "", "&a> Click to open");
+            categoryIcon = new SlimefunItemStack("GCE_ICON", Material.EGG, "&e基因工程雞", "", "&a> 點擊開啟");
         }
 
         Category category = new Category(categoryId, categoryIcon);
-        this.research = new Research(categoryId, 29841, "Defying Nature", 13);
+        this.research = new Research(categoryId, 29841, "違抗自然", 13);
 
         ItemStack[] nullRecipe = new ItemStack[] { null, null, null, null, null, null, null, null, null };
 
-        this.pocketChicken = new PocketChicken(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"Capture with a Chicken Net", "&for breed in a Private Coop")), nullRecipe);
+        this.pocketChicken = new PocketChicken(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"用雞網捕獲", "&f或在私人雞舍內繁殖")), nullRecipe);
         ChickenNet chickenNet = new ChickenNet(this, category, GCEItems.CHICKEN_NET, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             null, new ItemStack(Material.STRING), new ItemStack(Material.STRING),
             null, new ItemStack(Material.STICK), new ItemStack(Material.STRING),
@@ -101,7 +101,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             new ItemStack(Material.JUKEBOX), new ItemStack(Material.RED_BED), new ItemStack(Material.POPPY),
             new ItemStack(Material.BIRCH_PLANKS), SlimefunItems.HEATING_COIL, new ItemStack(Material.BIRCH_PLANKS)});
 
-        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"Obtained from a Pocket Chicken", "in an Excitation Chamber"));
+        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"從袋子雞上獲得", "在鼓舞室"));
 
         SlimefunItem waterEgg = new ResourceEgg(this, category, GCEItems.WATER_EGG, Material.WATER, fromChicken);
         SlimefunItem lavaEgg = new ResourceEgg(this, category, GCEItems.LAVA_EGG, Material.LAVA, fromChicken);
@@ -135,7 +135,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/kii-chan-reloaded/GeneticChickengineering/issues";
+        return "https://github.com/xMikux/GeneticChickengineering/issues";
     }
 
     @Override

@@ -1,48 +1,43 @@
-# Genetic Chickengineering
+# 基因工程雞
 
 ![License](https://img.shields.io/github/license/kii-chan-reloaded/GeneticChickengineering) ![Build](https://github.com/kii-chan-reloaded/GeneticChickengineering/workflows/Java%20CI%20with%20Maven/badge.svg)
 
-Genetic Chickengineering is an original implementation of resource chickens
-heavily inspired by SetyCz's popular Forge mod Chicken. 
-The main difference between the two is that while Chicken has a predetermined
-tree of chicken breeding, Genetic Chickengineering uses a very basic simulation
-of genetics to determine chicken progression (meaning you may want to brush up
-on [Punnett squares](https://en.wikipedia.org/wiki/Punnett_square)).
+基因工程雞是一種原先有的資源所實現的雞, 啟發於SetyCz有名的Forge模組Chicken.
+兩者的區別主要在於, Chicken具有預定的養育樹, 基因工程雞使用非常基本的模擬遺傳學來確定雞的生長方向
+(這意味著你需要查詢在 [Punnett squares](https://en.wikipedia.org/wiki/Punnett_square)).
 
-This is a mid- to late-game addon for
-[SlimeFun](https://github.com/Slimefun/Slimefun4). Furthermore, it uses
-Paper-specific API calls, and as such will not work on Spigot servers.
+這是中期向的附加對於
+[Slimefun](https://github.com/Slimefun/Slimefun4). 
+此外, 它使用Paper-specific(Paper-專用) API 調用, 因此在Spigot伺服器上不起作用.
 
-## Plugin Basics
-Overworld chickens have almost completely become the dominant, "normal" chickens
-that we know and love today, however there are certain chickens that carry
-latent powers. With the right tools, time, and care, these latent powers may be
-able to be uncovered, and the true potential of chickens can be unlocked.
+## 插件基礎
+主世界的雞幾乎已完全占主導地位的"正常"雞
+今天我們還是知道與愛著, 但是有些雞具有潛在力
+有了正確的工具, 時間和照顧, 這項潛在力量可能
+會被發現, 並釋放出雞的真正潛力!
 
-The first step in genetically enhancing your chickens is to craft a Chicken Net
-and turn some chickens into Pocket Chickens. Next, build a Genetic Sequencer to
-analyze the Pocket Chicken and learn its genotypes. When you've collected two or
-more favorable chickens, craft a Private Coop and leave your chickens to their
-business. After some time, they'll roll the genetic dice and make a baby! From
-there, release the chicken and let them grow into an adult, and the cycle can
-continue.
+對雞的基因改良第一步是製造雞網
+讓它變成袋子雞. 下一步, 建造一個基因測序儀來分析袋子雞的基因種類,
+當你收集了兩隻或更多良好的雞時,合成私人雞舍然後讓雞做它的事業.
+過了一些時間, 它們會骰出基因骰子並生出一個孩子!
+從那, 釋放小雞讓他長大, 然後循環
+繼續.
 
-Eventually, your efforts will be rewarded with a special chicken that can
-produce resources! However, they can't do it alone... This is where the
-Excitation Chamber comes into play. Insert a chicken with at least one
-homozygous recessive pair of alleles (one set of two lower-case letters) and
-it will begin producing a resource! Not all chickens of a resource type will
-produce resources at the same rate, though. Due to interference from
-heterozygous allele pairs (one dominant and one recessive), chickens which have
-only homozygous pairs will make resources faster than those with heterozygous
-genes. Add some cargo nodes to the Excitation Chamber to keep a steady,
-neverending supply of different resources!
+最終, 你的努力將得到一種特殊的雞, 該雞可以產生資源!
+但是, 它們不能獨自做到這點... 這就是鼓舞室的工作時間. 放入至少一隻雞
+純合隱性等位基因(一組兩個小寫字母) 它們金開始生產資源!
+並非所有雞生產的資源速度都相同. 由於受到來自雜合等位基因對(一顯性和一隱性),
+只有純基因對會比雜基因對還要快. 在鼓舞室安裝一些物流節點, 以保持穩定,
+永無休止地提供不同的資源!
 
-See [the sequence table](sequencing.md) or your in-game Slimefun Guide to learn
-how to make specific resources, or just start breeding chickens like crazy until
-you have all 64 varieties!
+查看 [序列表](sequencing.md) 或在遊戲中的Slimefun指南來了解如何製作特定的資源, 
+或者開始瘋狂地繁殖雞直到你有所有64個品種!
 
-## Images
+此為**非官方**版本, 請勿在該作者的問題追蹤內回報! <br>
+且翻譯有很多處讀起來很怪的 歡迎修正! <br>
+[原專案連結](https://github.com/kii-chan-reloaded/GeneticChickengineering)
+
+## 圖片
 
 ![A basic machine overview](/images/gce_machines.png)
 
@@ -56,10 +51,9 @@ you have all 64 varieties!
 
 ------
 
-By default, a chicken will display its resource in a custom name after it has
-been passed through a Genetic Sequencer. If the chicken already has a custom
-name, then the resource will be appended to the end of that name. This feature
-can be turned off globally in the plugin's `config.yml`.
+在默認情況下, 雞將在顯示它的資源在自定義名稱前與顯示其雞的基因序. 
+如果雞已經有一個特殊名稱, 那資源將會被附加添加至該名稱的尾部. 
+這項特徵可以在插件的`config.yml`中關閉.
 
 ![A nether quartz chicken named Crystal](/images/gce_names.png)
 

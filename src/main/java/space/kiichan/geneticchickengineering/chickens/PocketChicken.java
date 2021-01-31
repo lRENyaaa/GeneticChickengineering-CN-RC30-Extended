@@ -238,8 +238,8 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         }
         if (dna.isKnown()) {
             String chicktype = ChickenTypes.getName(dna.getTyping());
-            lore.add(ChatColor.GOLD + "DNA: " + ChatColor.RESET + dna.toString());
-            lore.add(ChatColor.GOLD + "Type: " + ChatColor.RESET + chicktype + " Chicken");
+            lore.add(ChatColor.GOLD + "基因: " + ChatColor.RESET + dna.toString());
+            lore.add(ChatColor.GOLD + "種類: " + ChatColor.RESET + chicktype + "雞");
         }
         return lore;
     }
