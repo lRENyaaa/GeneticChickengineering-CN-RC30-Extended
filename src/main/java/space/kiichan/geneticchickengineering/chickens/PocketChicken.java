@@ -49,7 +49,7 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         this.maxMutation = maxMutation;
         this.displayResources = displayResources;
     }
-    public PocketChicken(GeneticChickengineering plugin, Category category, SlimefunItemStack item, int mutationRate, int maxMutation, boolean displayResources, DNA dna, NamespacedKey adapterkey, NamespacedKey dnakey, RecipeType recipeType, ItemStack[] recipe) {
+    public PocketChicken(GeneticChickengineering plugin, Category category, SlimefunItemStack item, int mutationRate, int maxMutation, boolean displayResources, NamespacedKey adapterkey, NamespacedKey dnakey, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
         this.plugin = plugin;
         this.adapterkey = adapterkey;
@@ -140,22 +140,29 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         return item;
     }
 
-    public PocketChicken fakeVariant(int typing, String name, RecipeType rt) {
+    public PocketChicken fakeVariant(int typing, String name, Category category, RecipeType rt) {
         // Returns a chicken variant of the typing
         // Just used for adding the variants to the guide
         ItemStack item = getItem().clone();
-        int[] state = new int[7];
-        String typeStr = Integer.toBinaryString(typing);
-        String padded = String.format("%6s", typeStr).replaceAll(" ", "0");
+        DNA dna = new DNA(typing);
+        String chickType = ChickenTypes.getName(typing);
+        SlimefunItemStack fakechicken = GCEItems.makeChicken(chickType);
+        this.setLore(fakechicken, null, dna);
 
-        for (int i=0; i<6; i++) {
-            state[i] = 3*(((int) padded.charAt(i))-((int) '0'));
-        }
-        state[6] = 1;
-        DNA dna = new DNA(state);
-        SlimefunItemStack fakeitem = GCEItems.makeChicken(ChickenTypes.getName(typing));
-        this.setLore(fakeitem, null, dna);
-        PocketChicken newpc = new PocketChicken(this.plugin, this.getCategory(), fakeitem, this.mutationRate, this.maxMutation, this.displayResources, dna, this.adapterkey, this.dnakey, rt, this.getRecipe());
+        // Use the chicken's resource as the icon
+        SlimefunItemStack fakeicon = GCEItems.makeChickenIcon(chickType, ChickenTypes.getResource(typing));
+        // Since these will be "Pocket Chickens", they will spawn chickens when cheated into a player's inventory
+        // We set the DNA on the icon so that it will spawn a chicken of the correct type
+        ItemMeta meta = fakeicon.getItemMeta();
+        meta.getPersistentDataContainer().set(dnakey, PersistentDataType.INTEGER_ARRAY, dna.getState());
+        fakeicon.setItemMeta(meta);
+        PocketChicken newpc = new PocketChicken(this.plugin, category, fakeicon, this.mutationRate, this.maxMutation, this.displayResources, this.adapterkey, this.dnakey, rt, 
+            new ItemStack[]{
+                null, null, null,
+                null, fakechicken, null,
+                null, null, null
+            }
+        );
         newpc.register(this.plugin);
         return newpc;
     }
@@ -215,18 +222,20 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
                 if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
                     ItemUtils.consumeItem(e.getItem(), false);
                 }
-                if (json != null) {
-                    if (this.displayResources && dna.isKnown()) {
-                        json.addProperty("_customNameVisible", true);
-                        String name = "("+ChickenTypes.getName(dna.getTyping())+")";
+                if (this.displayResources && dna.isKnown()) {
+                    String name = "("+ChickenTypes.getName(dna.getTyping())+")";
+                    if (json != null) {
                         if (!json.get("_customName").isJsonNull()) {
                             name = json.get("_customName").getAsString() + " " + name;
                         }
+                        json.addProperty("_customNameVisible", true);
                         json.addProperty("_customName",name);
+                        adapter.apply(entity, json);
+                    } else {
+                        entity.setCustomName(name);
+                        entity.setCustomNameVisible​(true);
                     }
-                    adapter.apply(entity, json);
                 }
-
             }
         };
     }
@@ -259,7 +268,10 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
     public boolean isAdult(ItemStack chick) {
         PersistentDataContainer container = chick.getItemMeta().getPersistentDataContainer();
         JsonObject json = container.get(adapterkey, (PersistentDataType<String, JsonObject>) adapter);
-        return !json.get("baby").getAsBoolean();
+        if (json != null) {
+            return !json.get("baby").getAsBoolean();
+        }
+        return false;
     }
 
     public boolean isLearned(ItemStack chick) {
@@ -286,7 +298,7 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         return item;
     }
 
-    private void setLore(ItemStack item, JsonObject json, DNA dna) {
+    public void setLore(ItemStack item, JsonObject json, DNA dna) {
         ItemMeta meta = item.getItemMeta();
         meta.getPersistentDataContainer().set(dnakey, PersistentDataType.INTEGER_ARRAY, dna.getState());
         if (json != null) {

@@ -37,6 +37,7 @@ import space.kiichan.geneticchickengineering.machines.PrivateCoop;
 public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon {
 
     private final NamespacedKey categoryId = new NamespacedKey(this, "genetic_chickengineering");
+    private final NamespacedKey chickenDirectoryId = new NamespacedKey(this, "genetic_chickengineering_chickens");
     private final NamespacedKey dnakey = new NamespacedKey(this, "gce_pocket_chicken_dna");;
     public PocketChicken pocketChicken;
     private Research research;
@@ -66,16 +67,12 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             new GitHubBuildsUpdater(this, getFile(), "kii-chan-reloaded/GeneticChickengineering/master").start();
         }*/
 
-        SlimefunItemStack categoryIcon;
+        SlimefunItemStack chickenIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程雞", "", "&a> 點擊開啟");
+        SlimefunItemStack chickenDirectoryIcon = new SlimefunItemStack("GCE_DIRECTORY_ICON", new ItemStack(Material.BLAST_FURNACE), "&e基因雞目錄", "", "&a> 點擊開啟");
 
-        try {
-            categoryIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程雞", "", "&a> 點擊開啟");
-        } catch (Exception x) {
-            categoryIcon = new SlimefunItemStack("GCE_ICON", Material.EGG, "&e基因工程雞", "", "&a> 點擊開啟");
-        }
-
-        Category category = new Category(categoryId, categoryIcon);
+        Category category = new Category(categoryId, chickenIcon);
         this.research = new Research(categoryId, 29841, "違抗自然", 13);
+        Category chickDir = new Category(chickenDirectoryId, chickenDirectoryIcon);
 
         ItemStack[] nullRecipe = new ItemStack[] { null, null, null, null, null, null, null, null, null };
 
@@ -119,7 +116,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         registerToAll(excitationChamber2.setCapacity(1000).setEnergyConsumption(10).setProcessingSpeed(2));
 
         // Fill all resource chickens into the book
-        ChickenTypes.registerChickens(research, this.pocketChicken, fromChicken);
+        ChickenTypes.registerChickens(research, this.pocketChicken, chickDir, fromChicken);
         research.register();
 
         // Register listener to clean up database on world save

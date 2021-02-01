@@ -11,6 +11,10 @@
 此外, 它使用Paper-specific(Paper-專用) API 調用, 因此在Spigot伺服器上不起作用.
 
 ## 插件基礎
+*查看*
+[*wiki*](https://github.com/kii-chan-reloaded/GeneticChickengineering/wiki)
+*來了解更多詳細訊息*
+
 主世界的雞幾乎已完全占主導地位的"正常"雞
 今天我們還是知道與愛著, 但是有些雞具有潛在力
 有了正確的工具, 時間和照顧, 這項潛在力量可能
@@ -30,8 +34,9 @@
 只有純基因對會比雜基因對還要快. 在鼓舞室安裝一些物流節點, 以保持穩定,
 永無休止地提供不同的資源!
 
-查看 [序列表](sequencing.md) 或在遊戲中的Slimefun指南來了解如何製作特定的資源, 
-或者開始瘋狂地繁殖雞直到你有所有64個品種!
+查看 [序列表](https://github.com/kii-chan-reloaded/GeneticChickengineering/wiki/Sequencing-Guide)
+或在遊戲中的Slimefun指南來了解如何製作特定的資源,
+或者開始瘋狂地繁殖雞直到你有所有64個品種
 
 此為**非官方**版本, 請勿在該作者的問題追蹤內回報! <br>
 且翻譯有很多處讀起來很怪的 歡迎修正! <br>
