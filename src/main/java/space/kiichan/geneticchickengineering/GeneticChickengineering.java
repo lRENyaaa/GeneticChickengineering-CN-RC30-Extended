@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.papermc.lib.PaperLib;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,6 +27,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.World;
 import space.kiichan.geneticchickengineering.chickens.ChickenTypes;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
+import space.kiichan.geneticchickengineering.commands.Commands;
 import space.kiichan.geneticchickengineering.database.DBUtil;
 import space.kiichan.geneticchickengineering.items.ChickenNet;
 import space.kiichan.geneticchickengineering.items.GCEItems;
@@ -48,6 +50,13 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
     @Override
     public void onEnable() {
         this.log = this.getLogger();
+        
+        if (!PaperLib.isPaper()) {
+            this.log.severe("GCE must be run on a Paper server because it uses Paper-specific API calls.");
+            this.log.severe("This server doesn't appear understand Paper API, so GCE will be disabled.");
+            return;
+        }
+        
         File datadir = this.getDataFolder();
         if (!datadir.exists()) {
             datadir.mkdirs();
@@ -125,6 +134,10 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         // Register listener to clean up database on world save
         new WorldSavedListener(this);
 
+        if (cfg.getBoolean("commands.enabled")) {
+            // Register commands
+            new Commands(this, cfg);
+        }
     }
 
     @Override
