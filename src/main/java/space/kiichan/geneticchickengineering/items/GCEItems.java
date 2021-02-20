@@ -19,5 +19,6 @@ public final class GCEItems {
     public static final SlimefunItemStack EXCITATION_CHAMBER = new SlimefunItemStack("GCE_EXCITATION_CHAMBER", new ItemStack(Material.BLAST_FURNACE), "§e鼓舞室", "§r§7§o讓雞產生資源", LoreBuilder.machine(MachineTier.MEDIUM, MachineType.MACHINE), LoreBuilder.powerPerSecond(10));
     public static final SlimefunItemStack EXCITATION_CHAMBER_2 = new SlimefunItemStack("GCE_EXCITATION_CHAMBER_2", new ItemStack(Material.BLAST_FURNACE), "§e促進鼓舞室", "§r§7§o讓雞產生資源,", "§r§7§o但以更快的速度", LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.powerPerSecond(15));
     public static final SlimefunItemStack PRIVATE_COOP = new SlimefunItemStack("GCE_PRIVATE_COOP", new ItemStack(Material.BEEHIVE), "§e私人雞舍", "§r§7§o足夠讓兩隻雞...", LoreBuilder.machine(MachineTier.MEDIUM, MachineType.MACHINE), LoreBuilder.powerPerSecond(2));
+    public static final SlimefunItemStack RESTORATION_CHAMBER = new SlimefunItemStack("GCE_RESTORATION_CHAMBER", new ItemStack(Material.PINK_SHULKER_BOX), "§e恢復室", "§r§7§o治療雞", LoreBuilder.machine(MachineTier.MEDIUM, MachineType.MACHINE), LoreBuilder.powerPerSecond(4));
 
 }
