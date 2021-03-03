@@ -2,7 +2,7 @@ package space.kiichan.geneticchickengineering;
 
 import io.github.thebusybiscuit.cscorelib2.config.Config;
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
-import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
+//import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -82,20 +82,20 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         this.painKills = cfg.getOrSetDefault("options.pain-kills", false);
         this.painChance = clamp(0d, cfg.getDouble("options.pain-chance"), 100d);
 
-        if (cfg.getOrSetDefault("options.auto-update", false) && getDescription().getVersion().startsWith("DEV - ")) {
+        /*if (cfg.getOrSetDefault("options.auto-update", false) && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "kii-chan-reloaded/GeneticChickengineering/master").start();
-        }
+        }*/
 
-        SlimefunItemStack chickenIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&eGenetic Chickengineering", "", "&a> Click to open");
-        SlimefunItemStack chickenDirectoryIcon = new SlimefunItemStack("GCE_DIRECTORY_ICON", new ItemStack(Material.BLAST_FURNACE), "&eGCE Chicken Directory", "", "&a> Click to open");
+        SlimefunItemStack chickenIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程雞", "", "&a> 點擊開啟");
+        SlimefunItemStack chickenDirectoryIcon = new SlimefunItemStack("GCE_DIRECTORY_ICON", new ItemStack(Material.BLAST_FURNACE), "&e基因雞目錄", "", "&a> 點擊開啟");
 
         Category category = new Category(categoryId, chickenIcon);
-        this.research = new Research(categoryId, 29841, "Defying Nature", 13);
+        this.research = new Research(categoryId, 29841, "違抗自然", 13);
         Category chickDir = new Category(chickenDirectoryId, chickenDirectoryIcon);
 
         ItemStack[] nullRecipe = new ItemStack[] { null, null, null, null, null, null, null, null, null };
 
-        this.pocketChicken = new PocketChicken(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"§r§fCapture with a §aChicken Net", "§r§for breed in a §ePrivate Coop")), nullRecipe);
+        this.pocketChicken = new PocketChicken(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"§r§f用§a雞網§f捕獲", "§r§f或在§e私人雞舍§f內繁殖")), nullRecipe);
         ChickenNet chickenNet = new ChickenNet(this, category, GCEItems.CHICKEN_NET, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             null, new ItemStack(Material.STRING), new ItemStack(Material.STRING),
             null, new ItemStack(Material.STICK), new ItemStack(Material.STRING),
@@ -117,7 +117,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             new ItemStack(Material.JUKEBOX), new ItemStack(Material.RED_BED), new ItemStack(Material.POPPY),
             new ItemStack(Material.BIRCH_PLANKS), SlimefunItems.HEATING_COIL, new ItemStack(Material.BIRCH_PLANKS)});
 
-        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"§r§fObtained from a §bPocket Chicken", "&fin an §eExcitation Chamber"));
+        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"§r§f從§b裝有雞的袋子§f上獲得", "§f在§e鼓舞室§f內產生"));
 
         SlimefunItem waterEgg = new ResourceEgg(this, category, GCEItems.WATER_EGG, Material.WATER, fromChicken);
         SlimefunItem lavaEgg = new ResourceEgg(this, category, GCEItems.LAVA_EGG, Material.LAVA, fromChicken);
@@ -163,7 +163,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/kii-chan-reloaded/GeneticChickengineering/issues";
+        return "https://github.com/xMikux/GeneticChickengineering/issues";
     }
 
     @Override

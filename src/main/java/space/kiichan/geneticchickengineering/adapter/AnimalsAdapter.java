@@ -31,7 +31,7 @@ public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
         boolean isBaby = json.get("baby").getAsBoolean();
 
         if (isBaby) {
-            lore.add(ChatColor.GRAY + "Baby: " + ChatColor.WHITE + isBaby);
+            lore.add(ChatColor.GRAY + "幼崽: " + ChatColor.WHITE + isBaby);
         }
 
         return lore;

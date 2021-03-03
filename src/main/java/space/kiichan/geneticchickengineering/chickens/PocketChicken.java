@@ -268,21 +268,21 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
             lore = adapter.getLore(json);
             if (this.plugin.painEnabled()) {
                 double health = json.get("_health").getAsDouble();
-                String status = ChatColor.GOLD + "Status: ";
+                String status = ChatColor.GOLD + "狀態: ";
                 if (health > 2.0) {
-                    status = status + ChatColor.GREEN + "Healthy";
+                    status = status + ChatColor.GREEN + "健康";
                 } else if (health <= 0.50) {
-                    status = status + ChatColor.RED + "Exhausted";
+                    status = status + ChatColor.RED + "筋疲力盡";
                 } else {
-                    status = status + ChatColor.YELLOW + "Fatigued";
+                    status = status + ChatColor.YELLOW + "疲勞";
                 }
                 lore.add(status);
             }
         }
         if (dna.isKnown()) {
             String chicktype = ChickenTypes.getName(dna.getTyping());
-            lore.add(ChatColor.GOLD + "DNA: " + ChatColor.RESET + dna.toString());
-            lore.add(ChatColor.GOLD + "Type: " + ChatColor.RESET + chicktype + " Chicken");
+            lore.add(ChatColor.GOLD + "基因: " + ChatColor.RESET + dna.toString());
+            lore.add(ChatColor.GOLD + "種類: " + ChatColor.RESET + chicktype + "雞");
         }
         return lore;
     }
