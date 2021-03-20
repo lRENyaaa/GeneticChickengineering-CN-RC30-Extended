@@ -14,8 +14,6 @@ import org.bukkit.entity.Animals;
 
 import com.google.gson.JsonObject;
 
-import space.kiichan.geneticchickengineering.adapter.MobAdapter;
-
 public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
 
     private final Class<T> entityClass;

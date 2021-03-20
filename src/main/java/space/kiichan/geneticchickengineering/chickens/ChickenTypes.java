@@ -1,14 +1,15 @@
 package space.kiichan.geneticchickengineering.chickens;
 
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import space.kiichan.geneticchickengineering.chickens.PocketChicken;
+
+import io.github.thebusybiscuit.slimefun4.core.researching.Research;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import me.mrCookieSlime.Slimefun.Lists.RecipeType;
+import me.mrCookieSlime.Slimefun.Objects.Category;
 import space.kiichan.geneticchickengineering.items.GCEItems;
 
 public final class ChickenTypes {
@@ -16,7 +17,12 @@ public final class ChickenTypes {
     private ChickenTypes() {};
 
     private static final Map<Integer, Object[]> typemap = new LinkedHashMap<Integer, Object[]>() {
-        {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		{
             /* Key: int[] of dominance as returned by DNA.getTyping()
              * Value[0]: String of chicken type
              * Value[1]: ItemStack of the resource it gives

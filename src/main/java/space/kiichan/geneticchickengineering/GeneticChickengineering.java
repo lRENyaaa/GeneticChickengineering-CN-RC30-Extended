@@ -1,5 +1,19 @@
 package space.kiichan.geneticchickengineering;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.logging.Logger;
+
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.World;
+import org.bukkit.entity.Chicken;
+import org.bukkit.entity.Entity;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import io.github.thebusybiscuit.cscorelib2.config.Config;
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 //import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
@@ -7,24 +21,11 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.papermc.lib.PaperLib;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
-import java.util.UUID;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Chicken;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.World;
 import space.kiichan.geneticchickengineering.chickens.ChickenTypes;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
 import space.kiichan.geneticchickengineering.commands.Commands;
