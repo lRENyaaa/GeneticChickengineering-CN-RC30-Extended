@@ -70,7 +70,7 @@ public class CalculateChance extends Subcommand {
                 chanceTotal = chanceTotal * (matches*0.25);
             }
             long readableChance = Math.round(chanceTotal*100);
-            String message = "There is a "+readableChance+"% chance ";
+            String message = "有 "+readableChance+"% 几率";
             if (chanceTotal > 0 && chanceTotal < 100) {
                 message = message + "(roughly 1 in "+Math.round(1/chanceTotal)+" odds) ";
             }
