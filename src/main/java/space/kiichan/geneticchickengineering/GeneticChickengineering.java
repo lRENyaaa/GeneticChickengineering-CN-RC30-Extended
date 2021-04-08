@@ -87,11 +87,11 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             new GitHubBuildsUpdater(this, getFile(), "kii-chan-reloaded/GeneticChickengineering/master").start();
         }*/
 
-        SlimefunItemStack chickenIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程雞", "", "&a> 點擊開啟");
-        SlimefunItemStack chickenDirectoryIcon = new SlimefunItemStack("GCE_DIRECTORY_ICON", new ItemStack(Material.BLAST_FURNACE), "&e基因雞目錄", "", "&a> 點擊開啟");
+        SlimefunItemStack chickenIcon = new SlimefunItemStack("GCE_ICON", "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893", "&e基因工程", "", "&a> 点击查看");
+        SlimefunItemStack chickenDirectoryIcon = new SlimefunItemStack("GCE_DIRECTORY_ICON", new ItemStack(Material.BLAST_FURNACE), "&e基因工程产品", "", "&a> 点击查看");
 
         Category category = new Category(categoryId, chickenIcon);
-        this.research = new Research(categoryId, 29841, "違抗自然", 13);
+        this.research = new Research(categoryId, 29841, "基因工程", 13);
         Category chickDir = new Category(chickenDirectoryId, chickenDirectoryIcon);
 
         ItemStack[] nullRecipe = new ItemStack[] { null, null, null, null, null, null, null, null, null };
