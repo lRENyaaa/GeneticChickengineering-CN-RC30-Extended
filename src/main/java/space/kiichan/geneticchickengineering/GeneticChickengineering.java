@@ -11,6 +11,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -47,7 +48,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
     private boolean doPain;
     private boolean painKills;
     private double painChance;
-    public PocketChicken pocketChicken;
+    public PocketChicken<LivingEntity> pocketChicken;
     private Research research;
     public DBUtil db;
     public Logger log;
@@ -96,7 +97,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
 
         ItemStack[] nullRecipe = new ItemStack[] { null, null, null, null, null, null, null, null, null };
 
-        this.pocketChicken = new PocketChicken(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"§r§f用§a雞網§f捕獲", "§r§f或在§e私人雞舍§f內繁殖")), nullRecipe);
+        this.pocketChicken = new PocketChicken<LivingEntity>(this, category, GCEItems.POCKET_CHICKEN, mutationRate, maxMutation, displayResources, dnakey, new RecipeType(new NamespacedKey(this, "gce_from_net"), new CustomItem(GCEItems.CHICKEN_NET,"§r§f用§a鸡网§f捕捉", "§r§f或在§e私人鸡舍§f内繁殖")), nullRecipe);
         ChickenNet chickenNet = new ChickenNet(this, category, GCEItems.CHICKEN_NET, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             null, new ItemStack(Material.STRING), new ItemStack(Material.STRING),
             null, new ItemStack(Material.STICK), new ItemStack(Material.STRING),
@@ -118,7 +119,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             new ItemStack(Material.JUKEBOX), new ItemStack(Material.RED_BED), new ItemStack(Material.POPPY),
             new ItemStack(Material.BIRCH_PLANKS), SlimefunItems.HEATING_COIL, new ItemStack(Material.BIRCH_PLANKS)});
 
-        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"§r§f从§b装有鸡的袋子§f上获得", "§f在§e鼓舞室§f內出生"));
+        RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItem(GCEItems.EXCITATION_CHAMBER,"§r§f从§b装有鸡的袋子§f上获得", "§f在§e鼓舞室§f内出生"));
 
         SlimefunItem waterEgg = new ResourceEgg(this, category, GCEItems.WATER_EGG, Material.WATER, fromChicken, cfg.getOrSetDefault("options.allow-nether-water", false));
         SlimefunItem lavaEgg = new ResourceEgg(this, category, GCEItems.LAVA_EGG, Material.LAVA, fromChicken, true);

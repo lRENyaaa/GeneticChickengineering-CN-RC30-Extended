@@ -2,11 +2,10 @@ package space.kiichan.geneticchickengineering.genetics;
 
 import java.util.Arrays;
 import java.util.Random;
-import space.kiichan.geneticchickengineering.genetics.gene;
 
 public class DNA {
     private gene[] sequence;
-    final static private char[] alleles = new char[]{'b','c','d','f','s','w'};
+    final private static char[] alleles = new char[]{'b','c','d','f','s','w'};
     final private boolean[] boolcast = new boolean[]{false, true};
     private boolean learned;
 
@@ -68,14 +67,14 @@ public class DNA {
         int[] mutations = new Random().ints(0, 6).distinct().limit(maxMutation).toArray();
 
         for (int i=0; i<6; i++) {
-            char notation = Character.toUpperCase(this.alleles[i]);
+            char notation = Character.toUpperCase(DNA.alleles[i]);
             char[] markup = {notation, notation};
             // If this index was in the ones randomly chosen,
             // This allele is heterozygous
             final int z = i;
             boolean isMutated = Arrays.stream(mutations).anyMatch(x -> x == z);
             if (isMutated && Math.random()*100 < mutationRate) {
-                markup[1] = this.alleles[i];
+                markup[1] = DNA.alleles[i];
             }
             this.sequence[i] = new gene(markup);
         }

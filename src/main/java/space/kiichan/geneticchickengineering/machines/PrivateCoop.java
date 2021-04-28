@@ -17,6 +17,7 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
@@ -25,7 +26,7 @@ import space.kiichan.geneticchickengineering.items.GCEItems;
 
 public class PrivateCoop extends AContainer {
     private GeneticChickengineering plugin;
-    private final PocketChicken pc;
+    private final PocketChicken<LivingEntity> pc;
 
     public PrivateCoop(GeneticChickengineering plugin, Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);

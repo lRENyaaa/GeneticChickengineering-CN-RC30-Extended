@@ -9,6 +9,7 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecip
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Sound;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
@@ -16,7 +17,7 @@ import space.kiichan.geneticchickengineering.items.GCEItems;
 
 public class GeneticSequencer extends AContainer {
     private GeneticChickengineering plugin;
-    private final PocketChicken pc;
+    private final PocketChicken<LivingEntity> pc;
 
     public GeneticSequencer(GeneticChickengineering plugin, Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);

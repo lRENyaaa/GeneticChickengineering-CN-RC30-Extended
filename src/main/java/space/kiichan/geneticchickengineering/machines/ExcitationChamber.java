@@ -1,13 +1,18 @@
 package space.kiichan.geneticchickengineering.machines;
 
-import io.github.thebusybiscuit.cscorelib2.inventory.ClickAction;
-import io.github.thebusybiscuit.cscorelib2.inventory.InvUtils;
-import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import io.github.thebusybiscuit.cscorelib2.inventory.MenuClickHandler;
-import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
-import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.block.Block;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
+
+import io.github.thebusybiscuit.cscorelib2.inventory.InvUtils;
+import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
+import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
@@ -16,20 +21,14 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.block.Block;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
-import space.kiichan.geneticchickengineering.items.GCEItems;
 
 public class ExcitationChamber extends AContainer {
     private GeneticChickengineering plugin;
-    private final PocketChicken pc;
+    private final PocketChicken<LivingEntity> pc;
     private ItemStack currentResource;
-    public static Map<BlockMenu, ItemStack> resources = new HashMap<>();
+    public Map<BlockMenu, ItemStack> resources = new HashMap<>();
     private final ItemStack blackPane = new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " ");
     private int failRate;
     private int baseTime;

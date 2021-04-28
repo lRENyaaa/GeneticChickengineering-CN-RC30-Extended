@@ -1,17 +1,9 @@
 package space.kiichan.geneticchickengineering.chickens;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
-import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -24,15 +16,24 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
+import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
+import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
+import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
+import me.mrCookieSlime.Slimefun.Lists.RecipeType;
+import me.mrCookieSlime.Slimefun.Objects.Category;
+import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.adapter.AnimalsAdapter;
-import space.kiichan.geneticchickengineering.chickens.ChickenTypes;
 import space.kiichan.geneticchickengineering.genetics.DNA;
-import space.kiichan.geneticchickengineering.items.GCEItems;
 
 public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
 
-    private final AnimalsAdapter adapter = new AnimalsAdapter<>(Chicken.class);
+    private final AnimalsAdapter<Chicken> adapter = new AnimalsAdapter<>(Chicken.class);
     private final NamespacedKey adapterkey;
     private final NamespacedKey dnakey;
     public GeneticChickengineering plugin;
@@ -105,8 +106,6 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
     public ItemStack convert(Chicken entity) {
         JsonObject json = adapter.saveData(entity);
         ItemStack item = getItem().clone();
-        ItemMeta meta = item.getItemMeta();
-
         DNA dna;
         String uuid = entity.getUniqueId().toString();
 
@@ -161,7 +160,7 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         fakeicon.setItemMeta(meta);
 
         // Make the fake chicken variant and return it
-        PocketChicken newpc = new PocketChicken(this.plugin, category, fakeicon, this.mutationRate, this.maxMutation, this.displayResources, this.adapterkey, this.dnakey, rt, 
+        PocketChicken<LivingEntity> newpc = new PocketChicken<LivingEntity>(this.plugin, category, fakeicon, this.mutationRate, this.maxMutation, this.displayResources, this.adapterkey, this.dnakey, rt, 
             new ItemStack[]{
                 null, null, null,
                 null, fakechicken, null,
@@ -282,7 +281,7 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         if (dna.isKnown()) {
             String chicktype = ChickenTypes.getName(dna.getTyping());
             lore.add(ChatColor.GOLD + "基因: " + ChatColor.RESET + dna.toString());
-            lore.add(ChatColor.GOLD + "类型: " + ChatColor.RESET + chicktype + "雞");
+            lore.add(ChatColor.GOLD + "类型: " + ChatColor.RESET + chicktype + "鸡");
         }
         return lore;
     }
@@ -349,7 +348,8 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         return item;
     }
 
-    public void setLore(ItemStack item, JsonObject json, DNA dna) {
+    @SuppressWarnings("deprecation")
+	public void setLore(ItemStack item, JsonObject json, DNA dna) {
         ItemMeta meta = item.getItemMeta();
         meta.getPersistentDataContainer().set(dnakey, PersistentDataType.INTEGER_ARRAY, dna.getState());
         if (json != null) {

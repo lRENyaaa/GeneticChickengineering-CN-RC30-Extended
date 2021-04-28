@@ -1,10 +1,10 @@
 package space.kiichan.geneticchickengineering.commands;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
-import space.kiichan.geneticchickengineering.commands.Commands;
 import space.kiichan.geneticchickengineering.commands.subcommands.Subcommand;
 
 public class Executor implements CommandExecutor {

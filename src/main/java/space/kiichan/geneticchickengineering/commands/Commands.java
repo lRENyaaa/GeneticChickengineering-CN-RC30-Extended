@@ -1,16 +1,16 @@
 package space.kiichan.geneticchickengineering.commands;
 
-import io.github.thebusybiscuit.cscorelib2.config.Config;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 import org.bukkit.command.PluginCommand;
-import space.kiichan.geneticchickengineering.commands.Completer;
-import space.kiichan.geneticchickengineering.commands.Executor;
-import space.kiichan.geneticchickengineering.commands.subcommands.Subcommand;
-import space.kiichan.geneticchickengineering.commands.subcommands.MakeChicken;
-import space.kiichan.geneticchickengineering.commands.subcommands.CalculateChance;
+
+import io.github.thebusybiscuit.cscorelib2.config.Config;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
+import space.kiichan.geneticchickengineering.commands.subcommands.CalculateChance;
+import space.kiichan.geneticchickengineering.commands.subcommands.MakeChicken;
+import space.kiichan.geneticchickengineering.commands.subcommands.Subcommand;
 
 public class Commands {
 

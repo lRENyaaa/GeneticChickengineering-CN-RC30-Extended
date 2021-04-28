@@ -3,19 +3,25 @@ package space.kiichan.geneticchickengineering.commands.subcommands;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.commands.Commands;
-import space.kiichan.geneticchickengineering.commands.subcommands.Subcommand;
 import space.kiichan.geneticchickengineering.genetics.DNA;
 
 public class MakeChicken extends Subcommand {
 
     private final String alleles = new String(DNA.getAlleles());
     private final List<String> possibleDNA = new LinkedList<String>() {
-        {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		{
             for (int b=2; b>=0; b--) {
             for (int c=2; c>=0; c--) {
             for (int d=2; d>=0; d--) {
@@ -79,4 +85,8 @@ public class MakeChicken extends Subcommand {
         }
         return out;
     }
+
+	public String getAlleles() {
+		return alleles;
+	}
 }
