@@ -1,17 +1,8 @@
 package space.kiichan.geneticchickengineering.machines;
 
-import io.github.thebusybiscuit.cscorelib2.inventory.InvUtils;
-import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 import java.util.LinkedList;
 import java.util.List;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -20,6 +11,19 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
+import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
+import me.mrCookieSlime.Slimefun.Lists.RecipeType;
+import me.mrCookieSlime.Slimefun.Objects.Category;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import me.mrCookieSlime.Slimefun.cscorelib2.inventory.InvUtils;
+import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
+import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
 import space.kiichan.geneticchickengineering.items.GCEItems;
@@ -47,7 +51,8 @@ public class PrivateCoop extends AContainer {
     @Override
     protected void tick(Block b) {
         super.tick(b);
-        if (isProcessing(b)) {
+        MachineProcessor<CraftingOperation> processor = getMachineProcessor();
+        if (processor.getOperation(b) != null) {
             if (Math.random() < 0.25) {
                 Location l = b.getLocation().toCenterLocation();
                 l.getWorld().spawnParticle(Particle.HEART, l.add(0,0.5,0), 2, 0.2, 0, 0.2);
@@ -55,8 +60,7 @@ public class PrivateCoop extends AContainer {
             BlockMenu inv = BlockStorage.getInventory(b);
             // Check if parent chickens have been removed
             if (this.getParents(inv).size() != 2) {
-                progress.remove(b);
-                processing.remove(b);
+            	processor.endOperation(b);
                 inv.replaceExistingItem(22, new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " "));
             }
         }

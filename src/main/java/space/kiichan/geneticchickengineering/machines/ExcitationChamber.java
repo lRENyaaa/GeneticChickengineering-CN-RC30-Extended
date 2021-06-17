@@ -3,15 +3,15 @@ package space.kiichan.geneticchickengineering.machines;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.processing.AbstractProcessor;
+
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.cscorelib2.inventory.InvUtils;
-import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
+import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
@@ -21,14 +21,17 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import me.mrCookieSlime.Slimefun.cscorelib2.inventory.InvUtils;
+import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
+import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
 
 public class ExcitationChamber extends AContainer {
     private GeneticChickengineering plugin;
-    private final PocketChicken<LivingEntity> pc;
+    private final PocketChicken pc;
     private ItemStack currentResource;
-    public Map<BlockMenu, ItemStack> resources = new HashMap<>();
+    public static Map<BlockMenu, ItemStack> resources = new HashMap<>();
     private final ItemStack blackPane = new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " ");
     private int failRate;
     private int baseTime;
@@ -96,10 +99,10 @@ public class ExcitationChamber extends AContainer {
     protected void tick(Block b) {
         super.tick(this.initBlock(b));
         BlockMenu inv = BlockStorage.getInventory(b);
-        if (isProcessing(b)) {
+        MachineProcessor<CraftingOperation> processor = getMachineProcessor();
+        if (processor.getOperation(b) != null) {
             if (this.findNextRecipe(inv) == null) {
-                progress.remove(b);
-                processing.remove(b);
+            	processor.endOperation(b);
                 inv.replaceExistingItem(22, this.blackPane);
                 this.resources.remove(inv);
             }
@@ -108,7 +111,8 @@ public class ExcitationChamber extends AContainer {
         }
     }
 
-    @Override
+
+	@Override
     protected MachineRecipe findNextRecipe(BlockMenu inv) {
         for (int slot : getInputSlots()) {
             ItemStack chick = inv.getItemInSlot(slot);
