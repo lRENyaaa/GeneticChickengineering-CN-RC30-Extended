@@ -61,17 +61,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.2.4</version>
 
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.thebusybiscuit.cscorelib2</pattern>
-                            <shadedPattern>space.kiichan.geneticchickengineering.cscorelib2</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>io.papermc.lib</pattern>
-                            <shadedPattern>space.kiichan.geneticchickengineering.paperlib</shadedPattern>
+                            <pattern>io.github.bakedlibs.dough</pattern>
+                            <shadedPattern>space.kiichan.geneticchickengineering.dough</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -100,7 +96,7 @@
         <dependency>
             <groupId>com.github.Slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-24</version>
+            <version>RC-27</version>
             <scope>provided</scope>
         </dependency>
 
