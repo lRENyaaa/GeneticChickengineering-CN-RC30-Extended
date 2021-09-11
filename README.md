@@ -1,5 +1,8 @@
 # 基因工程雞
 
+
+
+ 适配为RC27
 ![License](https://img.shields.io/github/license/kii-chan-reloaded/GeneticChickengineering) ![Build](https://github.com/kii-chan-reloaded/GeneticChickengineering/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 基因工程雞是一種原先有的資源所實現的雞, 啟發於SetyCz有名的Forge模組Chicken.
