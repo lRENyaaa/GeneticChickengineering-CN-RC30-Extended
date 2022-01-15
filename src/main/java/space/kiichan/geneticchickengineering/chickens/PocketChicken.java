@@ -17,6 +17,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -215,6 +216,11 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {
+            if (e.getItem().getType()!=Material.PLAYER_HEAD) {
+                ItemStack real = new ItemStack(e.getItem().getType(), e.getItem().getAmount());
+                e.getItem().setItemMeta(real.getItemMeta());
+                return;
+            }
             e.cancel();
 
             Optional<Block> block = e.getClickedBlock();
