@@ -50,7 +50,7 @@ public class CalculateChance extends Subcommand {
         for (int i=0; i<3; i++) {
             notations[i] = args[args.length-3+i];
             if (!DNA.isValidSequence(notations[i])) {
-                sender.sendMessage("DNA notation invalid for "+notations[i]);
+                sender.sendMessage("DNA序列无效: "+notations[i]);
                 return true;
             }
         }
@@ -84,7 +84,7 @@ public class CalculateChance extends Subcommand {
                 ") child";
             sender.sendMessage(message);
         } else {
-            sender.sendMessage("Command must be executed by a player with permission");
+            sender.sendMessage("该命令必须由有权限的玩家触发");
         }
         return true;
     }
