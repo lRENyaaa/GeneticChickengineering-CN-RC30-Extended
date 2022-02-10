@@ -113,6 +113,10 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
             SlimefunItems.LEAD_INGOT, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LEAD_INGOT,
             SlimefunItems.BLISTERING_INGOT_3, GCEItems.EXCITATION_CHAMBER, SlimefunItems.BLISTERING_INGOT_3,
             SlimefunItems.LEAD_INGOT, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LEAD_INGOT});
+        ExcitationChamber excitationChamber10 = new ExcitationChamber(this, category, GCEItems.EXCITATION_CHAMBER_10, resFailRate, resBaseTime, RecipeType.ANCIENT_ALTAR, new ItemStack[]{
+                SlimefunItems.MAGIC_LUMP_3, SlimefunItems.NUCLEAR_REACTOR, SlimefunItems.MAGIC_LUMP_3,
+                SlimefunItems.REINFORCED_PLATE, GCEItems.EXCITATION_CHAMBER_2, SlimefunItems.REINFORCED_PLATE,
+                SlimefunItems.MAGIC_LUMP_3, SlimefunItems.URANIUM, SlimefunItems.MAGIC_LUMP_3});
         PrivateCoop privateCoop = new PrivateCoop(this, category, GCEItems.PRIVATE_COOP, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             new ItemStack(Material.BIRCH_PLANKS), new ItemStack(Material.BIRCH_PLANKS), new ItemStack(Material.BIRCH_PLANKS),
             new ItemStack(Material.JUKEBOX), new ItemStack(Material.RED_BED), new ItemStack(Material.POPPY),
@@ -134,6 +138,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         registerToAll(privateCoop.setCapacity(30).setEnergyConsumption(1).setProcessingSpeed(1));
         registerToAll(excitationChamber.setCapacity(250).setEnergyConsumption(5).setProcessingSpeed(1));
         registerToAll(excitationChamber2.setCapacity(1000).setEnergyConsumption(10).setProcessingSpeed(2));
+        registerToAll(excitationChamber10.setCapacity(5000).setEnergyConsumption(50).setProcessingSpeed(10));
         if (this.doPain) {
             int healRate = this.clamp(1, cfg.getOrSetDefault("options.heal-rate", 2), 120);
             RestorationChamber restorationChamber = new RestorationChamber(this, category, healRate, GCEItems.RESTORATION_CHAMBER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
