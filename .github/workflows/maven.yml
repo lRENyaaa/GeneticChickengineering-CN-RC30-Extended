@@ -32,5 +32,5 @@ jobs:
         uses: actions/upload-artifact@v2
         if: success()
         with:
-          name: f
+          name: Build
           path: target/GeneticChickengineering v1.2.1.jar
