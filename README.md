@@ -1,8 +1,12 @@
-# 基因工程雞
+# 基因工程
 
 
 
- 适配为RC27
+适配为RC30
+
+Extended版新增内容：
+- 终极鼓舞室（速度x10）
+
 ![License](https://img.shields.io/github/license/kii-chan-reloaded/GeneticChickengineering) ![Build](https://github.com/kii-chan-reloaded/GeneticChickengineering/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 基因工程雞是一種原先有的資源所實現的雞, 啟發於SetyCz有名的Forge模組Chicken.
