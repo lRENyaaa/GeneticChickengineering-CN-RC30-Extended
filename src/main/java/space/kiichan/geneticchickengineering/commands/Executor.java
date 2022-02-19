@@ -19,7 +19,7 @@ public class Executor implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage("Available subcommands:");
+            sender.sendMessage("可用子命令:");
             for (String name: this.commands.getSubcommands()) {
                 sender.sendMessage("    "+name);
             }
@@ -33,7 +33,7 @@ public class Executor implements CommandExecutor {
             }
             return subcommand.onExecute(sender, subargs);
         } else {
-            sender.sendMessage("Invalid subcommand: "+args[0]);
+            sender.sendMessage("不存在的子命令: "+args[0]);
         }
         return false;
     }
