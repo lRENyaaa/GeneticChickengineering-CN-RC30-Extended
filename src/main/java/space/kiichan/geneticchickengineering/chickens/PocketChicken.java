@@ -9,15 +9,12 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.NamespacedKey;
+import net.kyori.adventure.text.Component;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -249,13 +246,13 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
                 }
                 String name = "("+ChickenTypes.getName(dna.getTyping())+")";
                 if (json != null) {
+                    adapter.apply(entity, json);
                     if (this.displayResources && dna.isKnown()) {
                         if (!json.get("_customName").isJsonNull()) {
                             name = json.get("_customName").getAsString() + " " + name;
                         }
                         json.addProperty("_customNameVisible", true);
                         json.addProperty("_customName",name);
-                        adapter.apply(entity, json);
                     }
                 } else if (this.displayResources && dna.isKnown()) {
                     entity.setCustomName(name);
