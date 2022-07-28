@@ -7,7 +7,17 @@
 Extended版新增内容：
 - 终极鼓舞室（速度x10）
 
-![License](https://img.shields.io/github/license/kii-chan-reloaded/GeneticChickengineering) ![Build](https://github.com/kii-chan-reloaded/GeneticChickengineering/workflows/Java%20CI%20with%20Maven/badge.svg)
+<p align="center">
+  <a href="https://github.com/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/actions/workflows/maven.yml">
+    <img src="https://github.com/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/actions/workflows/maven.yml/badge.svg" alt="Java CI" />
+  </a>
+  <a href="https://builds.guizhanss.net/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/master">
+    <img src="https://builds.guizhanss.net/f/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/master/badge.svg" alt="Build status" />
+  </a>
+</p>
+
+
+![License](https://img.shields.io/github/license/kii-chan-reloaded/GeneticChickengineering)
 
 基因工程雞是一種原先有的資源所實現的雞, 啟發於SetyCz有名的Forge模組Chicken.
 兩者的區別主要在於, Chicken具有預定的養育樹, 基因工程雞使用非常基本的模擬遺傳學來確定雞的生長方向

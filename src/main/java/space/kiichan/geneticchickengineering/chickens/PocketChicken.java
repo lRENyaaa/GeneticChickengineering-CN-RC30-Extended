@@ -5,11 +5,12 @@ import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
-import net.kyori.adventure.text.Component;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Chicken;
@@ -19,6 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+import org.jetbrains.annotations.NotNull;
 import space.kiichan.geneticchickengineering.GeneticChickengineering;
 import space.kiichan.geneticchickengineering.adapter.AnimalsAdapter;
 import space.kiichan.geneticchickengineering.genetics.DNA;
@@ -27,7 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
+public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable, DistinctiveItem {
 
     private final AnimalsAdapter<Chicken> adapter = new AnimalsAdapter<>(Chicken.class);
     private final NamespacedKey adapterkey;
@@ -359,5 +361,16 @@ public class PocketChicken<T extends LivingEntity> extends SimpleSlimefunItem<It
         meta.setLore(getLore(json, dna));
 
         item.setItemMeta(meta);
+    }
+
+    @Override
+    public boolean canStack(@NotNull ItemMeta sfItemMeta, @NotNull ItemMeta itemMeta) {
+        boolean hasLoreItem = itemMeta.hasLore();
+        boolean hasLoreSfItem = sfItemMeta.hasLore();
+
+        if(hasLoreItem && hasLoreSfItem && SlimefunUtils.equalsLore(itemMeta.getLore(), sfItemMeta.getLore())) {
+            return true;
+        }
+        return !hasLoreItem && !hasLoreSfItem;
     }
 }
