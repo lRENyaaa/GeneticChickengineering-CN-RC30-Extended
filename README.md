@@ -28,7 +28,7 @@ Extended版新增内容：
 
 ### 插件基础与介绍
 
-有关更多详细信息，请参阅[wiki](https://github.com/kii-chan-reloaded/GeneticChickengineering/wiki) (PS 英文不行的，看下面，有我翻译的中文)
+有关更多详细信息，请参阅[wiki（简体中文）](https://github.com/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/wiki)
 
 主世界的鸡大多数都是占主导地位的正常鸡，但是有些鸡具有潜在的力量。这些鸡有了正确的工具、时间和充足的照顾，它们的真正潜力也许能够被发掘出来。
 
@@ -38,6 +38,8 @@ Extended版新增内容：
 
 查看[序列表](https://github.com/kii-chan-reloaded/GeneticChickengineering/wiki/Sequencing-Guide)或游戏内的 Slimefun 指南以了解如何制作特定资源。或者开始疯狂饲养鸡，直到拥有所有 64 个品种！
 
-此为**非官方**版本, 请勿在原作者的Issues内汇报bug!  
-且翻译有很多处读起來很怪的 欢迎修正!  
+此为**非官方**版本, 请勿在原作者的Issues内汇报bug!
+
+且翻译有很多处读起来很怪的，欢迎修正!
+
 [原仓库链接](https://github.com/kii-chan-reloaded/GeneticChickengineering)
