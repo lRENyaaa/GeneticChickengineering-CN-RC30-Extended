@@ -21,6 +21,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import space.kiichan.geneticchickengineering.chickens.ChickenTypes;
 import space.kiichan.geneticchickengineering.chickens.PocketChicken;
+import space.kiichan.geneticchickengineering.commands.Commands;
 import space.kiichan.geneticchickengineering.database.DBUtil;
 import space.kiichan.geneticchickengineering.items.ChickenNet;
 import space.kiichan.geneticchickengineering.items.GCEItems;
@@ -152,6 +153,8 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
         ChickenTypes.registerChickens(research, this.pocketChicken, chickDir, fromChicken);
         research.register();
 
+        new Commands(this, cfg);
+
         // Register listener to clean up database on world save
         new WorldSavedListener(this);
 
@@ -165,7 +168,7 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/xMikux/GeneticChickengineering/issues";
+        return "https://github.com/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/issues";
     }
 
     @Override
