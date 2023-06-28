@@ -8,9 +8,10 @@ import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOper
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -56,7 +57,7 @@ public class PrivateCoop extends AContainer {
                 Location l = b.getLocation().toCenterLocation();
                 l.getWorld().spawnParticle(Particle.HEART, l.add(0,0.5,0), 2, 0.2, 0, 0.2);
             }
-            BlockMenu inv = BlockStorage.getInventory(b);
+            BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation();
             // Check if parent chickens have been removed
             if (this.getParents(inv).size() != 2) {
             	processor.endOperation(b);
