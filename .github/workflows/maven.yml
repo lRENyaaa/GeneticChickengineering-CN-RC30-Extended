@@ -33,4 +33,4 @@ jobs:
         if: success()
         with:
           name: Build
-          path: target/GeneticChickengineering v1.2.1.jar
+          path: target/*
