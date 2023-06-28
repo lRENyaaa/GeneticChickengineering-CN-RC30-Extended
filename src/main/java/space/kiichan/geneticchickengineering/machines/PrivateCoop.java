@@ -57,7 +57,7 @@ public class PrivateCoop extends AContainer {
                 Location l = b.getLocation().toCenterLocation();
                 l.getWorld().spawnParticle(Particle.HEART, l.add(0,0.5,0), 2, 0.2, 0, 0.2);
             }
-            BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation();
+            BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation());
             // Check if parent chickens have been removed
             if (this.getParents(inv).size() != 2) {
             	processor.endOperation(b);
