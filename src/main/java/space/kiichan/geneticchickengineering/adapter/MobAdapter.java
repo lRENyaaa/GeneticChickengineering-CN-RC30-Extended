@@ -7,13 +7,10 @@ package space.kiichan.geneticchickengineering.adapter;
  * dependency
  */
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
@@ -97,13 +94,10 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 for (JsonElement modifier : modifiers) {
                     JsonObject obj = modifier.getAsJsonObject();
 
-                    String uuid = obj.get("uuid").getAsString();
-                    String name = obj.get("name").getAsString();
-                    double amount = obj.get("amount").getAsDouble();
-                    int operation = obj.get("operation").getAsInt();
+                    Map<String, Object> mod = new HashMap<>();
+                    obj.entrySet().forEach((en) -> mod.put(en.getKey(), en.getValue().toString().replaceAll("\"","")));
 
-                    AttributeModifier mod = new AttributeModifier(UUID.fromString(uuid), name, amount, Operation.values()[operation]);
-                    instance.addModifier(mod);
+                    instance.addModifier(AttributeModifier.deserialize(mod));
                 }
             }
         }
@@ -181,10 +175,7 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 for (AttributeModifier modifier : instance.getModifiers()) {
                     JsonObject mod = new JsonObject();
 
-                    mod.addProperty("uuid", modifier.getUniqueId().toString());
-                    mod.addProperty("name", modifier.getName());
-                    mod.addProperty("operation", modifier.getOperation().ordinal());
-                    mod.addProperty("amount", modifier.getAmount());
+                    modifier.serialize().forEach((key, value) -> mod.addProperty(key, value.toString()));
 
                     modifiers.add(mod);
                 }
