@@ -9,7 +9,7 @@ Extended版新增内容：
     <img src="https://github.com/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/actions/workflows/maven.yml/badge.svg" alt="Java CI" />
   </a>
   <a href="https://builds.guizhanss.net/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/master">
-    <img src="https://builds.guizhanss.net/f/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/master/badge.svg" alt="Build status" />
+    <img src="https://builds.guizhanss.net/api/badge/CrispyXYZ/GeneticChickengineering-CN-RC30-Extended/master/latest" alt="Build status" />
   </a>
 </p>
 
