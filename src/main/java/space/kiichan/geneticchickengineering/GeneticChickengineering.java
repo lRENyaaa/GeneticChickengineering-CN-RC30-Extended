@@ -125,14 +125,9 @@ public class GeneticChickengineering extends JavaPlugin implements SlimefunAddon
 
         RecipeType fromChicken = new RecipeType(new NamespacedKey(this, "gce_from_chicken"), new CustomItemStack(GCEItems.EXCITATION_CHAMBER,"§r§f从§b装有鸡的袋子§f上获得", "§f在§e鼓舞室§f内出生"));
 
-        SlimefunItem waterEgg = new ResourceEgg(this, category, GCEItems.WATER_EGG, Material.WATER, fromChicken, cfg.getOrSetDefault("options.allow-nether-water", false));
-        SlimefunItem lavaEgg = new ResourceEgg(this, category, GCEItems.LAVA_EGG, Material.LAVA, fromChicken, true);
-
         // Register items
         registerToAll(this.pocketChicken);
         registerToAll(chickenNet);
-        registerToAll(waterEgg);
-        registerToAll(lavaEgg);
 
         // Register machines
         registerToAll(geneticSequencer.setCapacity(180).setEnergyConsumption(3).setProcessingSpeed(1));
